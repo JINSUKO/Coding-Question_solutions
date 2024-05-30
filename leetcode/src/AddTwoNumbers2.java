@@ -1,5 +1,3 @@
-import java.math.BigInteger;
-
 /**
  * Definition for singly-linked list.
  * public class ListNode {
@@ -13,19 +11,20 @@ import java.math.BigInteger;
 
 public class AddTwoNumbers2 {
 
-    public static void main(String args[]) {
 
-        ListNode l1 = new ListNode(4);
-        ListNode l1_1 = new ListNode(2, l1);
-        ListNode l1_2 = new ListNode(8, l1_1);
+    public static void main(String[] args) {
 
-        ListNode l2 = new ListNode(3);
-        ListNode l2_1 = new ListNode(7, l2);
-        ListNode l2_2 = new ListNode(5, l2_1);
+        AddTwoNumbersListNode l1 = new AddTwoNumbersListNode(4);
+        AddTwoNumbersListNode l1_1 = new AddTwoNumbersListNode(2, l1);
+        AddTwoNumbersListNode l1_2 = new AddTwoNumbersListNode(8, l1_1);
+
+        AddTwoNumbersListNode l2 = new AddTwoNumbersListNode(3);
+        AddTwoNumbersListNode l2_1 = new AddTwoNumbersListNode(7, l2);
+        AddTwoNumbersListNode l2_2 = new AddTwoNumbersListNode(5, l2_1);
 
     }
 
-    public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+    public static AddTwoNumbersListNode addTwoNumbers(AddTwoNumbersListNode l1, AddTwoNumbersListNode l2) {
         // 받아올림 기능을 구현하는 부분도 필요함.
         // 로직 = 새로운 노드를 계속 생성하면서
         //       ListNode.next에 새로운 노드의 주소를 넣어야 한다.
@@ -36,9 +35,9 @@ public class AddTwoNumbers2 {
 
         // 초기 노드의 주소를 저장해야한다.
         // 초기 노드의 주소를 저장하는 노드를 생성한다.
-        ListNode head = null;
+        AddTwoNumbersListNode head = null;
         // 값을 넣을 노드를 생성한다.
-        ListNode curr = new ListNode();
+        AddTwoNumbersListNode curr = new AddTwoNumbersListNode();
 
         head = curr;
 
@@ -49,8 +48,7 @@ public class AddTwoNumbers2 {
         while (!(l1 == null && l2 == null && carry == 0)) {
 
 
-
-            curr.next = new ListNode((carry + ((l1 == null) ? 0 : l1.val) + ((l2 == null) ? 0 : l2.val)) % 10);
+            curr.next = new AddTwoNumbersListNode((carry + ((l1 == null) ? 0 : l1.val) + ((l2 == null) ? 0 : l2.val)) % 10);
 
             carry = (carry + ((l1 == null) ? 0 : l1.val) + ((l2 == null) ? 0 : l2.val)) / 10;
 
