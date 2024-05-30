@@ -13,28 +13,15 @@ import java.math.BigInteger;
 
 public class AddTwoNumbers2 {
 
-    public AddTwoNumbers2() {}
-
-    public static void main(String[] args) {
-
-        AddTwoNumbersListNode l1 = new AddTwoNumbersListNode(2);
-        AddTwoNumbersListNode l1_1 = new AddTwoNumbersListNode(4, l1);
-        AddTwoNumbersListNode l1_2 = new AddTwoNumbersListNode(3, l1_1);
-
-    }
-
-
     public static void main(String args[]) {
 
-    ListNode l1 = new ListNode(4);
-    ListNode l1_1 = new ListNode(2, l1);
-    ListNode l1_2 = new ListNode(8, l1_1);
+        ListNode l1 = new ListNode(4);
+        ListNode l1_1 = new ListNode(2, l1);
+        ListNode l1_2 = new ListNode(8, l1_1);
 
-    ListNode l2 = new ListNode(3);
-    ListNode l2_1 = new ListNode(7, l2);
-    ListNode l2_2 = new ListNode(5, l2_1);
-
-    addTwoNumbers(l1_2, l2_2);
+        ListNode l2 = new ListNode(3);
+        ListNode l2_1 = new ListNode(7, l2);
+        ListNode l2_2 = new ListNode(5, l2_1);
 
     }
 
