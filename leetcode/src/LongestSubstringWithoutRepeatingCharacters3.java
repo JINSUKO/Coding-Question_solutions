@@ -1,6 +1,4 @@
-import java.lang.reflect.Array;
 import java.util.*;
-import java.util.stream.Stream;
 
 public class LongestSubstringWithoutRepeatingCharacters3 {
 
@@ -10,7 +8,7 @@ public class LongestSubstringWithoutRepeatingCharacters3 {
 
     }
 
-
+// 문제풀이 시도3. -해결 다른 정답코드들을 보니 많이 좋진 않음...
     public static int solution(String s) {
 
         if (s.length() == 0 ) {
@@ -18,64 +16,60 @@ public class LongestSubstringWithoutRepeatingCharacters3 {
         } else if (s.length() == 1) {
             return 1;
         } else {
-            String words[] = s.split(" ");
 
             int char_cnt = 0;
 
             List<String> substrings = new ArrayList();
 
-            for (String word : words) {
 
-                char chars[] = word.toCharArray();
+            char chars[] = s.toCharArray();
 
-                List<String> char_substring = new LinkedList<>();
+            List<String> char_substring = new LinkedList<>();
 
-                System.out.println(Arrays.toString(chars));
+            System.out.println(Arrays.toString(chars));
 
-                int cnt = 0;
+            int cnt = 0;
 
-                for (char c : chars) {
-                    cnt++;
+            for (char c : chars) {
+                cnt++;
 
-                    String c_string = Character.toString(c);
+                String c_string = Character.toString(c);
 
 //                    System.out.println(c);
 
-                    // 문자가 substring에 이미 있으면 수행한다.
-                    if (char_substring.contains(c_string)) {
+                // 문자가 substring에 이미 있으면 수행한다.
+                if (char_substring.contains(c_string)) {
 
-                        substrings.add(String.join("", char_substring.toArray(new String[0])));
+                    substrings.add(String.join("", char_substring.toArray(new String[0])));
 
-                        int dup_index = char_substring.indexOf(c_string);
+                    int dup_index = char_substring.indexOf(c_string);
 
-                        System.out.println(dup_index);
-                        Iterator iterator = char_substring.iterator();
+                    System.out.println(dup_index);
+                    Iterator iterator = char_substring.iterator();
 
-                        while (iterator.hasNext()) {
+                    while (iterator.hasNext()) {
 
-                            String ch = (String) iterator.next();
+                        String ch = (String) iterator.next();
 
-                            // 제일 앞부터 제거해면서 동일한 문자가 있는 위치가 오면 제거하고 반복문을 나온다.
-                            if (ch.equals(c_string)) {
-                                iterator.remove();
-                                break;
-                            }
+                        // 제일 앞부터 제거해면서 동일한 문자가 있는 위치가 오면 제거하고 반복문을 나온다.
+                        if (ch.equals(c_string)) {
                             iterator.remove();
+                            break;
                         }
-                    // 문자열의 마지막 문자에서 이 코드가 수행된다.
-                    } else if (cnt == word.length()) {
-                        char_substring.add(c_string);
-                        substrings.add(String.join("", char_substring.toArray(new String[0])));
+                        iterator.remove();
                     }
-
-                    // 문자가 char_substring에 있는지 검사한 후에 현재 문자를 추가한다.
+                // 문자열의 마지막 문자에서 이 코드가 수행된다.
+                } else if (cnt == s.length()) {
                     char_substring.add(c_string);
-
+                    substrings.add(String.join("", char_substring.toArray(new String[0])));
                 }
 
-
+                // 문자가 char_substring에 있는지 검사한 후에 현재 문자를 추가한다.
+                char_substring.add(c_string);
 
             }
+
+
 
             System.out.println(substrings.toString());
 
