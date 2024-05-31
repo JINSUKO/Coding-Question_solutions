@@ -2,7 +2,7 @@ import java.util.*;
 
 public class LongestSubstringWithoutRepeatingCharacters3 {
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
 
         System.out.println(solution("dvdf fdsa"));
 
@@ -11,18 +11,16 @@ public class LongestSubstringWithoutRepeatingCharacters3 {
 // 문제풀이 시도3. -해결 다른 정답코드들을 보니 많이 좋진 않음...
     public static int solution(String s) {
 
-        if (s.length() == 0 ) {
+        if (s.isEmpty() ) {
             return 0;
         } else if (s.length() == 1) {
             return 1;
         } else {
 
-            int char_cnt = 0;
-
             List<String> substrings = new ArrayList();
 
 
-            char chars[] = s.toCharArray();
+            char[] chars = s.toCharArray();
 
             List<String> char_substring = new LinkedList<>();
 
@@ -69,9 +67,7 @@ public class LongestSubstringWithoutRepeatingCharacters3 {
 
             }
 
-
-
-            System.out.println(substrings.toString());
+            System.out.println(substrings);
 
             Iterator iterator = substrings.iterator();
 
