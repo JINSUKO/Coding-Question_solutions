@@ -2,7 +2,9 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.Map;
-
+/*
+    https://leetcode.com/problems/two-sum/description/
+ */
 public class TwoSumNo1 {
 
     public static void main(String[] args) {
